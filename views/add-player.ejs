@@ -1,0 +1,99 @@
+<html>
+        <head>
+                <style>
+                .container
+                {
+                    margin:0 auto;
+                    height:300px;
+                    width:700px;             
+                    padding: 60px;
+                    padding-left: 250px;
+                }
+                td
+                {
+                    font-size: 20px;
+                }
+                .form-control
+                {
+                    height: 30px;
+                    width:280px;
+                }
+                .btn
+                {
+                    height:30px;
+                    width:100px;
+                    color:black;
+                    background: green;
+                    outline:none;
+                    border:none;
+                }
+                h2{
+                    text-align: center;
+                    text-decoration: underline;
+                }
+                </style>
+            </head>
+<body>
+        
+<% include partials/header.ejs %>
+<h2>ADD PLAYER</h2>
+    <div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        
+        <form  action="" method="post" enctype="multipart/form-data">
+            <TABLE>
+                    <TR>
+                      <TD>FIRSTNAME</TD>
+                      <TD>
+                            <input type="text" class="form-control" name="first_name" id="first-name" placeholder="First Name" required>
+                      </TD>
+                    </TR>
+                    <TR>
+                      <TD>LASTNAME</TD>
+                      <TD>
+                            <input type="text" class="form-control" name="last_name" id="last-name" placeholder="Last Name" required>
+                        </TD>
+                    </TR>
+                    <TR>
+                            <TD>USERNAME</TD>
+                            <TD>
+                                  
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                              </TD>
+                          </TR>
+                          <TR>
+                                <TD>NUMBER</TD>
+                                <TD>
+                                      
+                    <input type="number" class="form-control" name="number" id="number" placeholder="Number" required>
+                                  </TD>
+                              </TR>
+                              <TR>
+                                    <TD>POSITION</TD>
+                                    <TD>
+                                          
+                                            <select id="position" name="position" class="form-control" required>
+                                                    <option selected disabled>Choose position</option>
+                                                    <option>Goalkeeper</option>
+                                                    <option>Defender</option>
+                                                    <option>Midfielder</option>
+                                                    <option>Forward</option>
+                                                </select>
+                                      </TD>
+                                  </TR>
+                  </TABLE>
+                  <br/><br/>
+                    <label for="player-img"><b>Player Image</b></label><br>
+                    <br/>
+                    <input type="file" name="image" id="player-img"  required>
+               
+            <button  type="submit" class="btn btn-primary float-right">Add Player</button>
+            
+                 
+        </form>
+    </div>
+
+</body>
+</html>

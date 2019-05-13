@@ -1,0 +1,107 @@
+<html>
+        <head>
+                <style>
+                 .container
+                {
+                    margin:0 auto;
+                    height:300px;
+                    width:700px;             
+                    padding: 60px;
+                    padding-left: 250px;
+                }
+                td
+                {
+                    font-size: 20px;
+                }
+                .form-control
+                {
+                    height: 30px;
+                    width:280px;
+                }
+                .btn
+                {
+                    height:30px;
+                    width:100px;
+                    color:black;
+                    background: green;
+                    outline:none;
+                    border:none;
+                    position:absolute;
+                    left: 600px;
+                    top:500px;
+                 }
+                 h2{
+                    text-align: center;
+                    text-decoration: underline;
+                }
+                
+                </style>
+            </head>
+<body>    
+<% include partials/header.ejs %>
+<h2>EDIT PLAYER</h2>
+<div >
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (player) { %>
+        <form class="container" action="" method="post" enctype="multipart/form-data">                 
+                    <TABLE>
+                            <TR>
+                              <TD>FIRSTNAME</TD>
+                              <TD>
+                                    <input type="text" class="form-control" name="first_name" id="first-name" value="<%= player.first_name %>" required> </TD>
+                            </TR>
+                            <TR>
+                              <TD>LASTNAME</TD>
+                              <TD>
+                                    <input type="text" class="form-control" name="last_name" id="last-name" value="<%= player.last_name %>" required>
+                                </TD>
+                            </TR>
+                            <TR>
+                                    <TD>USERNAME</TD>
+                                    <TD>
+                                            <input type="text" class="form-control" name="username" id="username" value="<%= player.user_name %>" required disabled title="Username cannot be edited.">
+                
+                                      </TD>
+                                  </TR>
+                                  <TR>
+                                        <TD>NUMBER</TD>
+                                        <TD>
+                                                <input type="number" class="form-control" name="number" id="number" placeholder="Number" value="<%= player.number %>" required>
+                                          </TD>
+                                      </TR>
+                                      <TR>
+                                            <TD>POSITION</TD>
+                                            <TD>
+                                                  
+                                                    <select id="position" name="position" class="form-control" required>
+                                                            <option selected><%= player.position %></option>
+                                                            <option>Goalkeeper</option>
+                                                            <option>Centre Back</option>
+                                                            <option>Right Back</option>
+                                                            <option>Left Back</option>
+                                                            <option>Defensive Midfielder</option>
+                                                            <option>Central Midfielder</option>
+                                                            <option>Attacking Midfielder</option>
+                                                            <option>Right Wing Forward</option>
+                                                            <option>Left Wing Forward</option>
+                                                            <option>Striker</option>
+                                                        </select>
+                                              </TD>
+                                          </TR>
+                          </TABLE>
+                          <br/><br/>
+                    
+                                <button type="submit" class="btn">Update Player</button>
+                          
+          
+        </form>
+    <% } else { %>
+        <p class="text-center">Player Not Found. Go <a href="/add">here</a> to add players.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
